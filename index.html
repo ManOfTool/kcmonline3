@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Index</title>
+</head>
+<body>
+    <h1>KCMonline v3</h1>
+    <div>
+        <input type="file" id="file-upload" multiple><br/>
+        <button id="submit" onclick="submit()">Submit</button>
+    </div>
+    <div>
+        Rows:
+        <select id="row-select">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3" selected>3</option>
+            <option value="4">4</option>
+        </select>
+        Columns:
+        <select id="column-select">
+            <option value="1">1</option>
+            <option value="2" selected>2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+        <button id="btn-create" onclick="createCanvas()" disabled="true">Create Canvas</button>
+        <button id="btn-exec" onclick="goExec()" disabled="true">Draw</button>
+    </div>
+    
+    <canvas id="canvas-dst" width="200" height="150" style="border:1px solid #000000"></canvas>
+    
+    <div id="img-field" hidden></div>
+
+</body>
+<script src="./main.js"></script>
+</html>
