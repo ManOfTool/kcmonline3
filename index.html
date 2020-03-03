@@ -9,6 +9,22 @@
         <input type="file" id="file-upload" multiple><br/>
         <button id="submit" onclick="submit()">Submit</button>
     </div>
+    <div >
+        <div class="input-box">
+            X: <input id="sx" type="number" value="0">
+        </div>
+        <div class="input-box">
+            Y: <input id="sy" type="number" value="0">
+        </div>
+    </div>
+    <div>
+        <div class="input-box">
+            Height: <input id="sh" type="number" value=100>
+        </div>
+        <div class="input-box">
+            Width: <input id="sw" type="number" value=100>
+        </div>
+    </div>
     <div>
         Rows:
         <select id="row-select">
@@ -24,7 +40,7 @@
             <option value="3">3</option>
             <option value="4">4</option>
         </select>
-        <button id="btn-create" onclick="createCanvas()" disabled="true">Create Canvas</button>
+        <!-- <button id="btn-create" onclick="createCanvas()" disabled="true">Create Canvas</button> -->
         <button id="btn-exec" onclick="goExec()" disabled="true">Draw</button>
     </div>
     
