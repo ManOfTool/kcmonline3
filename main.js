@@ -1,6 +1,14 @@
 let IMG_WIDTH = document.getElementById('sw').valueAsNumber;
 let IMG_HEIGHT = document.getElementById('sh').valueAsNumber;
 
+document.getElementById('sw').addEventListener('change', function(){
+    IMG_WIDTH = this.valueAsNumber;
+});
+
+document.getElementById('sh').addEventListener('change', function(){
+    IMG_HEIGHT = this.valueAsNumber;
+});
+
 document.getElementById('file-upload').addEventListener('change', function(){
     let files = document.getElementById('file-upload').files;
     // console.log(this.files.length);
