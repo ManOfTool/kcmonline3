@@ -2,7 +2,7 @@
 * 以HTML5的Canvas和JavaScript組成的簡易圖片拼貼工具
 * 用來組成艦隊
 
-[](https://manoftool.github.io/kcmonline3)
+[按此前往](https://manoftool.github.io/kcmonline3)
 
 ## 使用方法
 1. 截圖
