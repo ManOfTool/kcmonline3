@@ -9,33 +9,35 @@
         <input type="file" id="file-upload" multiple><br/>
     </div>
     <div>
-        <h3>Slicing</h3>
-        <div class="input-box">
-            Top-left X: <input id="sx" type="number" value="0"> px
-        </div>
-        <div class="input-box">
-            Top-left Y: <input id="sy" type="number" value="0"> px
-        </div>
+        Mode Select
+        <select id="setting-select">
+            <option value="0">--- Options ---</option>
+            <option value="1">With model</option>
+            <option value="2">Without model</option>
+            <option value="3">Base</option>
+        </select>
     </div>
     <div>
+        <h3>Slicing</h3>
         <div class="input-box">
-            Width: <input id="sw" type="number" value=100> px
+            Top-left X: <input id="sx" type="number" value="0" class="slicing"> px
         </div>
         <div class="input-box">
-            Height: <input id="sh" type="number" value=100> px
+            Top-left Y: <input id="sy" type="number" value="0" class="slicing"> px
         </div>
+        <div class="input-box">
+            Width: <input id="sw" type="number" value=100 class="slicing"> px
+        </div>
+        <div class="input-box">
+            Height: <input id="sh" type="number" value=100 class="slicing"> px
+        </div>
+        <input type="checkbox" id="no-slicing"><label for="no-slicing">No slicing</label>
     </div>
     <div>
         <h3>Scaling</h3>
         Width: <input id="dw" type="number" value=100> % <br/>
         Height: <input id="dh" type="number" value=100> %
-    </div>
-    <div>
-        <h3>Predefined setting</h3>
-        <button onclick="selectPredefined('0')">Clear</button>
-        <button onclick="selectPredefined('1')">With model</button>
-        <button onclick="selectPredefined('2')">Without model</button>
-        <button onclick="selectPredefined('9')">Base</button>
+        <input type="checkbox" id="fixed-ratio"><label for="fixed-ratio">Matain aspect ratio</label>
     </div>
     <div>
         Rows:
@@ -52,12 +54,12 @@
             <option value="3">3</option>
             <option value="4">4</option>
         </select>
-        <!-- <button id="btn-create" onclick="createCanvas()" disabled="true">Create Canvas</button> -->
-        <button id="btn-exec" onclick="goExec()" disabled="true">Draw</button>
+
+        <button id="btn-draw" disabled="true">Draw</button>
     </div>
     
     <canvas id="canvas-dst" width="200" height="150" style="border:1px solid #000000"></canvas>
-    <button onclick="download()">Download</button>
+    <button id="btn-download">Download</button>
     <div id="img-field" hidden></div>
 
 </body>

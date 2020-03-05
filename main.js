@@ -15,11 +15,35 @@ document.getElementById('file-upload').addEventListener('change', function(){
             fields.innerHTML += imgs;
         }
 
-        document.getElementById('btn-exec').disabled = false;
+        document.getElementById('btn-draw').disabled = false;
     }
 });
 
-function createCanvas() {
+document.getElementById('btn-draw').addEventListener('click', function() {
+    drawCanvas();
+});
+
+document.getElementById('btn-download').addEventListener('click', function () {
+    download();
+});
+
+document.getElementById('setting-select').addEventListener('change', function() {
+    selectPredefined(this.value);
+});
+
+document.getElementById('dw').addEventListener('change', function() {
+    if (document.getElementById('fixed-ratio').checked) {
+        document.getElementById('dh').valueAsNumber = this.valueAsNumber;
+    }
+});
+
+document.getElementById('dh').addEventListener('change', function() {
+    if (document.getElementById('fixed-ratio').checked) {
+        document.getElementById('dw').valueAsNumber = this.valueAsNumber;
+    }
+});
+
+function drawCanvas() {
     let IMG_WIDTH = document.getElementById('sw').valueAsNumber;
     let IMG_HEIGHT = document.getElementById('sh').valueAsNumber;
 
@@ -32,19 +56,7 @@ function createCanvas() {
 
     canvas.width = d_width * column;
     canvas.height = d_height * row;
-}
 
-function drawCanvas() {
-    let IMG_WIDTH = document.getElementById('sw').valueAsNumber;
-    let IMG_HEIGHT = document.getElementById('sh').valueAsNumber;
-
-    let d_width = IMG_WIDTH * document.getElementById('dw').valueAsNumber / 100;
-    let d_height = IMG_HEIGHT * document.getElementById('dh').valueAsNumber / 100;
-
-    let row = document.getElementById('row-select').value;
-    let column = document.getElementById('column-select').value;
-
-    let canvas = document.getElementById('canvas-dst');
     let context = canvas.getContext('2d');
 
     context.fillStyle = 'white';
@@ -79,8 +91,14 @@ function selectPredefined(s){
             document.getElementById('sy').valueAsNumber = 0;
             break;
         case '1':
-            document.getElementById('sw').valueAsNumber = 570;
-            document.getElementById('sh').valueAsNumber = 750;
+            document.getElementById('sw').valueAsNumber = 750;
+            document.getElementById('sh').valueAsNumber = 570;
+            document.getElementById('sx').valueAsNumber = 450;
+            document.getElementById('sy').valueAsNumber = 150;
+            break;
+        case '2':
+            document.getElementById('sw').valueAsNumber = 385;
+            document.getElementById('sh').valueAsNumber = 570;
             document.getElementById('sx').valueAsNumber = 450;
             document.getElementById('sy').valueAsNumber = 150;
             break;
@@ -98,7 +116,5 @@ function download() {
 }
 
 function goExec() {
-    createCanvas();
-
     drawCanvas();
 }
